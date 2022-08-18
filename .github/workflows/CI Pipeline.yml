@@ -62,4 +62,4 @@ jobs:
         context: .
         push: true
         tags: user/simple-fortune-cookie:latest
-  Test:
+
