@@ -7,15 +7,16 @@ metadata:
     app: web
   name: fortune-deployment
 spec:
-  replicas: 1
-  selector:
+  replicas: 1       #tells k8s how many pods to create during a deployment
+  selector:         #tells k8s to only target pods that match the labels
     matchLabels:
       app: web
   strategy: {}
+    type: RollingUpdate   #rollingupdate allows k8s to update service w/out outage
   template:
     metadata:
       creationTimestamp: null
-      labels:
+      labels:       #adding labels to metadata specification
         app: web
     spec:
       containers:
@@ -25,3 +26,5 @@ spec:
         ports:
         - containerPort: 80
 status: {}
+
+# https://developer.ibm.com/tutorials/yaml-basics-and-usage-in-kubernetes/
