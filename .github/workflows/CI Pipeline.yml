@@ -14,7 +14,17 @@ env:
   GET_COMMIT: ${{ github.sha }}
 jobs:
 
-  Docker-backend:
-  Docker-frontend:
+  Docker:
+    runs-on: ubuntu-latest
+    needs: [Build, Test]
+    steps:
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+    - name: Build and push
+      uses: actions/build-push-action@v3
+      with:
+        push: true
+        tags: user/app:latest
+
 
   Test:
