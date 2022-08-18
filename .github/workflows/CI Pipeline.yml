@@ -61,5 +61,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: user/simple-fortune-cookie:latest
+        tags: lawsl/simple-fortune-cookie:latest
 
